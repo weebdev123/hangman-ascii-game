@@ -34,5 +34,6 @@ while True: #while loop runs until break
         print("Your Lives are gone. You Lose!")
         break
     elif not letters: #break condition when no letters remain
+        print("Final Word: " + " ".join(display))
         print("You guessed all letters. You Win!")
         break
