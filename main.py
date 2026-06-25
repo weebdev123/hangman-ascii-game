@@ -11,7 +11,10 @@ display = ["_"] * len(word) #stores guessed word progress
 lives = 5 #total lives
 while True: #while loop runs until break
     print("Word: " + " ".join(display))
-    guess = input("Guess a letter: ") #stores guess
+    guess = input("Guess a letter: ").strip().lower() #stores guess
+    if not guess or (len(guess) > 1) or not guess.isalpha():
+        print("Invalid guess!")
+        continue
     if guess in letters: #checks if guess is found in letters
         for position in range(len(word)):
             if word[position] == guess:
