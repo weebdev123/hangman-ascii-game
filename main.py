@@ -2,13 +2,64 @@ import random #imported random module to randomly pick a word
 
 print("Welcome to Hangman!") #greeting
 
+hangman_ascii_art = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
 word_list = ["apple", "banana", "melon", "orange", "mango"] #list of word to choose from
 
 word = random.choice(word_list) #chooses a random word
 
 letters = list(word) #stores list of letters
 display = ["_"] * len(word) #stores guessed word progress
-lives = 5 #total lives
+lives = 6 #total lives
 while True: #while loop runs until break
     print("Word: " + " ".join(display))
     guess = input("Guess a letter: ").strip().lower() #stores guess
