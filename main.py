@@ -5,22 +5,22 @@ print("Welcome to Hangman!") #greeting
 hangman_ascii_art = ['''
   +---+
   |   |
-      |
-      |
-      |
+  O   |
+ /|\\  |
+ / \\  |
       |
 =========''', '''
   +---+
   |   |
   O   |
+ /|\\  |
+ /    |
       |
-      |
-      |
-=========''', '''
+=========''','''
   +---+
   |   |
   O   |
-  |   |
+ /|\\  |
       |
       |
 =========''', '''
@@ -34,24 +34,24 @@ hangman_ascii_art = ['''
   +---+
   |   |
   O   |
- /|\  |
+  |   |
+      |
+      |
+=========''',  '''
+  +---+
+  |   |
+  O   |
+      |
       |
       |
 =========''', '''
   +---+
   |   |
-  O   |
- /|\  |
- /    |
       |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
       |
-=========''']
+      |
+      |
+=========''', ]
 
 word_list = ["apple", "banana", "melon", "orange", "mango"] #list of word to choose from
 
@@ -61,6 +61,7 @@ letters = list(word) #stores list of letters
 display = ["_"] * len(word) #stores guessed word progress
 lives = 6 #total lives
 while True: #while loop runs until break
+    print(hangman_ascii_art[lives])
     print("Word: " + " ".join(display))
     guess = input("Guess a letter: ").strip().lower() #stores guess
     if not guess or (len(guess) > 1) or not guess.isalpha():
@@ -82,6 +83,7 @@ while True: #while loop runs until break
     print(f"Lives left: {lives}")
 
     if lives == 0: #break condition when lives over
+        print(hangman_ascii_art[lives])
         print("Your Lives are gone. You Lose!")
         break
     elif not letters: #break condition when no letters remain
