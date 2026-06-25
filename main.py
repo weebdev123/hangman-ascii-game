@@ -7,15 +7,25 @@ word_list = ["apple", "banana", "melon", "orange", "mango"] #list of word to cho
 word = random.choice(word_list) #chooses a random word
 
 letters = list(word) #stores list of letters
+display = ["_"] * len(word) #stores guessed word progress
 lives = 5 #total lives
 while True: #while loop runs until break
+    print("Word: " + " ".join(display))
     guess = input("Guess a letter: ") #stores guess
     if guess in letters: #checks if guess is found in letters
-        letters.remove(guess) #removes the letter's first occurence
+        for position in range(len(word)):
+            if word[position] == guess:
+                display[position] = guess
+
+        while guess in letters:
+            letters.remove(guess) #removes all occurrences of the letter
+
         print("Your letter was found!")
     else:
         lives -= 1 #one life gone when incorrect guess
         print("Your letter was not found! One life gone")
+
+    print(f"Lives left: {lives}")
 
     if lives == 0: #break condition when lives over
         print("Your Lives are gone. You Lose!")
